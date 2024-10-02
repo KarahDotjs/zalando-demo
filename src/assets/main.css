@@ -1,12 +1,22 @@
 @import './base.css';
 
-/* Fichier main.css */
 :root {
   --main-black: #1a1a1a;
   --main-orange: #ff6900;
-  --light-grey: #EFEFF0;
+  --light-grey: #efeff0;
   --dark-grey: #666666;
   --header-top-height: 32px;
   --header-bottom-height: 60px;
   --footer-height: 60px;
+}
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: var(--main-black);
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+a {
+  text-decoration: none;
 }
