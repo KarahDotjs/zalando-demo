@@ -16,9 +16,9 @@
         </nav>
         <img src="../assets/img/logo_fcp7ga.svg" alt="logo zalando" />
         <nav>
-          <p>Icone 1</p>
-          <p>Icone 2</p>
-          <p>Icone 3</p>
+          <font-awesome-icon :icon="['far', 'user']" />
+          <font-awesome-icon :icon="['far', 'heart']" />
+          <font-awesome-icon :icon="['fas', 'shopping-bag']" />
         </nav>
       </div>
     </div>
