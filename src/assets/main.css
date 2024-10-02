@@ -1,0 +1,12 @@
+@import './base.css';
+
+/* Fichier main.css */
+:root {
+  --main-black: #1a1a1a;
+  --main-orange: #ff6900;
+  --light-grey: #EFEFF0;
+  --dark-grey: #666666;
+  --header-top-height: 32px;
+  --header-bottom-height: 60px;
+  --footer-height: 60px;
+}
