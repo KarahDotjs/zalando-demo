@@ -4,7 +4,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 // Import de FontAwesome Core
 import { library } from '@fortawesome/fontawesome-svg-core'
-// Import du composant vue-fontawesome
+// Import du composant vue-fontawesome 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 /* Import de l'icône sac de shopping */
 import { faShoppingBag } from '@fortawesome/free-solid-svg-icons'
