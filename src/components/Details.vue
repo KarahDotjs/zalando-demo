@@ -29,6 +29,18 @@ const props = defineProps({
       <p>
         Couleur <span class="selectedColor">{{ selectedVariant.color }}</span>
       </p>
+
+      <div class="img-bloc">
+        <img
+          v-for="variant in productInfos.variants"
+          :src="variant.image.url"
+          :alt="variant.image.alt"
+          :class="{
+            selectedImg: variant.id === selectedVariant.id
+          }"
+        />
+      </div>
+
       <p class="advise">
         Nous vous recommandaons de choisir une taille au-dessus de celle habituelle
       </p>
@@ -71,6 +83,24 @@ h1 + p span {
 }
 .rate svg {
   margin-right: 4px;
+}
+
+.selectedColor {
+  font-weight: bold;
+}
+/* --- image bloc --- */
+.img-bloc {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+img {
+  width: 60px;
+  height: 70px;
+  object-fit: cover;
+}
+.selectedImg {
+  border: 2px solid black;
 }
 /*advise*/
 .advise {
@@ -136,9 +166,5 @@ h1 + p span {
   width: 25px;
   height: 25px;
   cursor: pointer;
-}
-
-.selectedColor {
-  font-weight: bold;
 }
 </style>
