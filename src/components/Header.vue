@@ -70,7 +70,6 @@ nav:last-of-type {
   justify-content: flex-end;
 }
 a {
-  
   color: inherit;
   font-weight: bold;
   padding: 10px 15px;
@@ -80,20 +79,20 @@ a:first-child {
   color: #fff;
 }
 /* --------------------------------------- */
-  /* [...] */
-  svg {
-color: var(--main-black);
-padding: 10px;
-    /* Pour éviter le décalage de l'icône au moment du survol de la souris, on définit une bordure
+/* [...] */
+svg {
+  color: var(--main-black);
+  padding: 10px;
+  /* Pour éviter le décalage de l'icône au moment du survol de la souris, on définit une bordure
      de base. N'hésitez pas à commenter la propriété pour constater la différence */
-border: 2px solid white;
-    /* Pour éviter que le padding décale l'icône dans une partie non visible, on doit exclure
+  border: 2px solid white;
+  /* Pour éviter que le padding décale l'icône dans une partie non visible, on doit exclure
      la marge interne et les bordures de la taille du SVG */
-box-sizing: content-box;
-cursor: pointer;
-  }
+  box-sizing: content-box;
+  cursor: pointer;
+}
 
-  svg:hover {
-border: 2px solid var(--main-black);
-  }
+svg:hover {
+  border: 2px solid var(--main-black);
+}
 </style>
