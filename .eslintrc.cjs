@@ -12,3 +12,9 @@ module.exports = {
     ecmaVersion: 'latest'
   }
 }
+{
+  "vue/multi-word-component-names": ["error"
+    {
+  "ignores": ["Details.vue"]
+  }]
+}

@@ -3,7 +3,13 @@ import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
 import Details from './components/Details.vue'
 
-import productInfos from './assets/data.json'
+import data from './assets/data.json'
+
+import { reactive, ref } from 'vue'
+// accepted object & array
+const productInfos = reactive(data)
+// all types of values must simple
+const selectedVariant = ref(data.variants[0])
 </script>
 
 <template>
@@ -13,7 +19,7 @@ import productInfos from './assets/data.json'
       <div class="container">
         <div></div>
 
-        <Details :productInfos="productInfos" />
+        <Details :productInfos="productInfos" :selectedVariant />
       </div>
     </main>
 
