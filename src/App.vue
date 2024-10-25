@@ -17,7 +17,7 @@ const selectedVariant = ref(data.variants[0])
     <Header />
     <main>
       <div class="container">
-        <div></div>
+        <div><img :src="selectedVariant.image.url" :alt="selectedVariant.image.alt" /></div>
 
         <Details :productInfos="productInfos" :selectedVariant />
       </div>
@@ -43,5 +43,15 @@ const selectedVariant = ref(data.variants[0])
   padding: 25px 0 25px 100px;
   box-sizing: border-box;
 }
+.container > div:first-child {
+  padding: 25px;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* -- Deuxième colonne ----------- */
+/* [...] */
 /* La balise 'p' se trouvant immediatement après la balise 'h1' */
 </style>
