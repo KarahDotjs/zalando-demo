@@ -9,6 +9,14 @@ const props = defineProps({
     required: true
   }
 })
+const isVariantSoldOut = (sizes) => {
+  for (const key in sizes) {
+    if (sizes[key] > 0) {
+      return false
+    }
+  }
+  return true
+}
 </script>
 
 <template>
@@ -36,7 +44,8 @@ const props = defineProps({
           :src="variant.image.url"
           :alt="variant.image.alt"
           :class="{
-            selectedImg: variant.id === selectedVariant.id
+            selectedImg: variant.id === selectedVariant.id,
+            outOfStock: isVariantSoldOut(variant.sizes)
           }"
         />
       </div>
@@ -94,7 +103,7 @@ h1 + p span {
   gap: 10px;
   margin: 10px 0;
 }
-img {
+.img-bloc img {
   width: 60px;
   height: 70px;
   object-fit: cover;

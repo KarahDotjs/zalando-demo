@@ -37,7 +37,7 @@ const selectedVariant = ref(data.variants[0])
 }
 .container > div {
   width: 50%;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
 .container > div:last-child {
   padding: 25px 0 25px 100px;
