@@ -1,3 +1,12 @@
+<script setup>
+const props = defineProps({
+  cart: {
+    type: Array,
+    required: true
+  }
+})
+</script>
+
 <template>
   <header>
     <div class="header-top">
@@ -19,6 +28,7 @@
           <font-awesome-icon :icon="['far', 'user']" />
           <font-awesome-icon :icon="['far', 'heart']" />
           <font-awesome-icon :icon="['fas', 'shopping-bag']" />
+          <p class="numOfProduct" v-if="cart.length > 0">{{ cart.length }}</p>
         </nav>
       </div>
     </div>
@@ -68,6 +78,7 @@ nav {
 }
 nav:last-of-type {
   justify-content: flex-end;
+  position: relative;
 }
 a {
   color: inherit;
@@ -94,5 +105,18 @@ svg {
 
 svg:hover {
   border: 2px solid var(--main-black);
+}
+.numOfProduct {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: var(--main-orange);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
 }
 </style>

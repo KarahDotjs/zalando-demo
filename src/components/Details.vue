@@ -17,6 +17,32 @@ const isVariantSoldOut = (sizes) => {
   }
   return true
 }
+
+const emit = defineEmits(['changeSelectedVariant', 'addProductToCart'])
+
+const handleEmitNewVariant = (variant) => {
+  const isSoldOut = isVariantSoldOut(variant.sizes)
+
+  if (!isSoldOut) {
+    emit('changeSelectedVariant', variant)
+  }
+}
+
+const handleSelectSize = (size, quantity) => {
+  const newObj = { ...props.selectedVariant }
+  if (quantity > 0) {
+    newObj.selectedSize = size
+
+    emit('changeSelectedVariant', newObj)
+  }
+}
+const handleAddToCart = () => {
+  if (!props.selectedVariant.selectedSize) {
+    alert('Veuillez séléctionner une taille !')
+  } else {
+    emit('addProductToCart')
+  }
+}
 </script>
 
 <template>
@@ -47,6 +73,7 @@ const isVariantSoldOut = (sizes) => {
             selectedImg: variant.id === selectedVariant.id,
             outOfStock: isVariantSoldOut(variant.sizes)
           }"
+          @click="handleEmitNewVariant(variant)"
         />
       </div>
 
@@ -58,14 +85,16 @@ const isVariantSoldOut = (sizes) => {
           v-for="(quantity, size) in selectedVariant.sizes"
           :key="size"
           :class="{
-            outOfStock: quantity === 0
+            outOfStock: quantity === 0,
+            selectedSize: size === selectedVariant.selectedSize
           }"
+          @click="handleSelectSize(size, quantity)"
         >
           {{ size }}
         </div>
       </div>
       <div class="cart-bloc">
-        <button>Ajouter au panier</button>
+        <button @click="handleAddToCart">Ajouter au panier</button>
         <div>
           <font-awesome-icon :icon="['far', 'heart']" />
         </div>
@@ -136,8 +165,13 @@ h1 + p span {
   align-items: center;
   justify-content: center;
 }
-.sizes-bloc .outOfStock {
+.outOfStock {
+  /* .sizes-bloc */
   opacity: 0.3;
+  /* background: yellow; */
+}
+.sizes-bloc .selectedSize {
+  border-width: 2px;
 }
 /* cart-bloc */
 .cart-bloc {
